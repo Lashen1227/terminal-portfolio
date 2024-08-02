@@ -3,6 +3,7 @@ let liner = document.getElementById('liner');
 let command = document.getElementById('typer');
 let textarea = document.getElementById('texter');
 let terminal = document.getElementById('terminal');
+let body = document.querySelector('body');
 
 let commands = [];
 let git = 0;
@@ -44,7 +45,7 @@ function enterKey(e) {
     commands.push(command.innerHTML);
     git = commands.length;
     addLine(
-      'localhost@terminal.sujay:~$ <span class="command">"'+
+      'localhost@terminal.lashen:~$ <span class="command">"'+
         command.innerHTML +
         '</span>',
       'liner no-animation',
@@ -86,7 +87,7 @@ function commander(cmd) {
       getDate();
       break;
     case 'whoami':
-      addLine('visitor@sujay.terminal', 'color3', 80);
+      addLine('visitor@lashen.terminal', 'color3', 80);
       break;
     case 'cd ..':
       addLine("<span style='color:red;'>can not change directory persmission denied!!</span><br></br>");
@@ -118,9 +119,9 @@ function commander(cmd) {
     case 'social':
       loopLines(social, 'color margin', 80);
       break;
-    case 'twitter':
-      addLine('Opening Twitter...', 'color2', 0);
-      newTab(twitter);
+    case 'x':
+      addLine('Opening X...', 'color2', 0);
+      newTab(x);
       break;
     case 'linkedin':
       addLine('Opening LinkedIn...', 'color2', 0);
@@ -147,7 +148,17 @@ function commander(cmd) {
       loopLines(help, 'color margin', 80);
       break;
     case 'pwd':
-      addLine('localhost/sujay/terminal', 'color3', 0);
+      addLine('localhost/lashen/terminal', 'color3', 0);
+      break;
+    case 'exit':
+      loopLines(exit, 'color margin', 80);
+      setTimeout(window.close, 1000);
+      break;
+    case '':
+      break;
+    case 'sudo rm -rf /*':
+      rmrf();
+      setTimeout(window.close, 5000);
       break;
     default:
       addLine(
@@ -198,6 +209,14 @@ function cls() {
     terminal.innerHTML = '<a id="before"></a>';
     before = document.getElementById('before');
   }, 1);
+}
+
+function rmrf() {
+  setTimeout(function () {
+    //empty tthe whole page and show a black screen
+    body.innerHTML = '';
+    body.style.backgroundColor = 'black';
+  }, 2000);
 }
 
 function previousCMD() {
