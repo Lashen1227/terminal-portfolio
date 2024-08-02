@@ -69,7 +69,7 @@ b {
 }
 #liner::before {
   color: yellowgreen;
-  content: 'local_host@terminal.sujay:~$';
+  content: 'local_host@terminal.lashen:~$';
 }
 @keyframes show {
   from {
